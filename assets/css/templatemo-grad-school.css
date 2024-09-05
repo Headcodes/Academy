@@ -8,10 +8,11 @@ https://templatemo.com/tm-557-grad-school
 
 
 @import url(fontawesome.css);
-/* @import url("<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">");
+
+@import url("<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">");
 body {
     font-family: 'Montserrat', sans-serif;
-} */
+}
 
 /* Basic */
 
@@ -21,7 +22,7 @@ a {
 }
 
 a:hover {
-	color: #FC3;
+	color: red;
     text-decoration: none;
 }
 
@@ -271,13 +272,13 @@ a.menu-link { display: none; }
 }
 
 .main-menu li .sub-menu li a:hover {
-    color: #f5a425;
+    color: red;
     border: none;
 }
 
 .main-nav li:hover a,
 .main-nav li.active a {
-    border: 2px solid #f5a425;
+    border: 2px solid red;
 }
 
 @media (max-width: 950px) {
@@ -716,20 +717,23 @@ section.coming-soon .continer .counter span {
 }
 
 section.coming-soon .right-content {
-    margin-left: 30px;
+    margin-left: -60 0px;
+    margin-left: -600px;
+
 }
 
 @media screen and (max-width: 767px) {
 
   section.coming-soon .right-content {
       margin-top: 60px;
-      margin-left: 0px;
+      margin-left:500px;
   }
 
 }
 
 section.coming-soon .top-content {
     margin-bottom: -8px;
+    
 }
 
 section.coming-soon .top-content h6 {
@@ -780,7 +784,7 @@ section.coming-soon form input::placeholder { color: #fff; }
 
 section.coming-soon form button {
     margin-top: 10px;
-    background-color: #f5a425;
+    background-color:red;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -903,6 +907,7 @@ section.video .left-content span {
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.5px;
+  margin-left: -100px;
 }
 
 section.video .left-content h4 {
@@ -1516,7 +1521,7 @@ section.contact form textarea::placeholder { color: #fff; }
 section.contact form textarea::placeholder { color: #fff; }
 
 section.contact form button {
-    background-color: #f5a425;
+    background-color: red;
     color: #fff;
     font-size: 13px;
     text-transform: uppercase;
@@ -1548,7 +1553,7 @@ footer p {
 
 footer p a,
 footer p a:hover {
-    color: #f5a425;
+    color: red;
 }
 
 @media screen and (max-width: 992px) {
