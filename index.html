@@ -17,6 +17,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">    
 
     <title>HeadCodes</title>
+    <link rel="icon" href="./assets/images/png white logo (3).png" type="image/x-icon" />
     
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -200,7 +201,7 @@
                 </div>
                 <div class="col-md-12">
                   <fieldset>
-                    <input name="phone-number" type="tel" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
+                    <input name="phone-number" type="number" class="form-control" id="phone-number" placeholder="Your Phone Number" required="">
                   </fieldset>
                 </div>
                 <div class="col-md-12">
@@ -225,7 +226,11 @@
                 </div>
               </div>
             </form>
-            <div class="success-message" style="display:none;"></div>
+            <div class="success-message" style="color:white">
+              <h3>Thank you for your course enquiry!</h3>
+              <p>Your form has been successfully submitted. Our team will get back to you soon with more details about the <span id="selected-course"></span> course.</p>
+              <p>If you have any urgent questions, please don't hesitate to call us at +91 90614 54178.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -301,8 +306,8 @@
           </div>
         </div>
         <div class="col-md-6">
-          <div class="success-message1" style="display:none;">
-            <p>Your message has been sent successfully!</p>
+          <div class="success-message1" style="color: white;">
+            <p>Your message has been sent successfully! </p>
           </div>
             <form id="contactEnquiry" action="">
             <div class="row">
@@ -439,37 +444,40 @@
     </script>
      <!-- Ajax Success Message and Redirection -->
      <script>
-      $("#courseEnquiry").submit((e) => {
-          e.preventDefault();
-          $.ajax({
-              url: "https://script.google.com/macros/s/AKfycbzUHX8wQgAg7J9snVcm8RlXG7N3zg9WE4nZ0Glln9AZc5Y38LIiLyFlWAZUQfbwyTeu/exec",
-              data: $("#courseEnquiry").serialize(),
-              method: "post",
-              success: function(response) {
-                  $("#courseEnquiry").hide();
-                  $(".success-message").text("Form submitted successfully").show();
-              },
-              error: function(err) {
-                  alert("Something went wrong.");
-              }
-          });
-      });
-  
-      $("#contactEnquiry").submit((e) => {
-          e.preventDefault();
-          $.ajax({
-              url: "https://script.google.com/macros/s/AKfycbzyKcUkRw_Vs5EToptHBjJS8dm_xLiUVwlpyNP-b4j2-kkdi26pUte1HMeNgRXAJpco/exec",
-              data: $("#contactEnquiry").serialize(),
-              method: "post",
-              success: function(response) {
-                $(".success-message1").show();
-                  $("#contactEnquiry").hide();
-              },
-              error: function(err) {
-                  alert("Something went wrong.");
-              }
-          });
-      });
+     $(document).ready(function() {
+  $("#courseEnquiry").submit((e) => {
+    e.preventDefault();
+    $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbzUHX8wQgAg7J9snVcm8RlXG7N3zg9WE4nZ0Glln9AZc5Y38LIiLyFlWAZUQfbwyTeu/exec",
+      data: $("#courseEnquiry").serialize(),
+      method: "post",
+      success: function(response) {
+        $("#courseEnquiry").hide();
+        $(".success-message").html("<h3>Form submitted successfully</h3><p>Thank you for your course enquiry. We'll get back to you soon.</p>").show();
+      },
+      error: function(err) {
+        alert("Something went wrong.");
+      }
+    });
+  });
+
+  $("#contactEnquiry").submit((e) => {
+    e.preventDefault();
+    var name = $("#contactEnquiry input[name='name']").val();
+    $.ajax({
+      url: "https://script.google.com/macros/s/AKfycbzyKcUkRw_Vs5EToptHBjJS8dm_xLiUVwlpyNP-b4j2-kkdi26pUte1HMeNgRXAJpco/exec",
+      data: $("#contactEnquiry").serialize(),
+      method: "post",
+      success: function(response) {
+        $("#contactEnquiry").hide();
+        $(".success-message1").html("<h3>Thank you for contacting us, " + name + "!</h3><p>Your message has been successfully submitted. We'll get back to you as soon as possible.</p>").show();
+      },
+      error: function(err) {
+        alert("Something went wrong.");
+      }
+    });
+  });
+});
   </script>
   
 
